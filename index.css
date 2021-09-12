@@ -1,0 +1,9 @@
+.status_bar {
+	display: grid;
+	grid-auto-flow: column;
+	grid-gap: 5px;
+	padding-left: 5px;
+	color: white;
+	background-color: #385599;
+	grid-auto-columns: max-content;
+}
