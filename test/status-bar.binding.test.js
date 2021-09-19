@@ -1,3 +1,4 @@
+import assert from "assert"
 import { JSDOM } from "jsdom"
 import { Core, Binding } from "domodel"
 
@@ -8,23 +9,24 @@ const { document } = window
 const RootModel = { tagName: "div" }
 let rootBinding
 
-export function setUp(callback) {
-	rootBinding = new Binding()
-	Core.run(RootModel, { parentNode: document.body, binding: rootBinding })
-	callback()
-}
+describe("status-bar.binding", () => {
 
-export function tearDown(callback) {
-	rootBinding.remove()
-	callback()
-}
+	beforeEach(() => {
+		rootBinding = new Binding()
+		Core.run(RootModel, { parentNode: document.body, binding: rootBinding })
+	})
 
-export function instance(test) {
-	test.expect(1)
-	test.ok(new Binding() instanceof Binding)
-	test.done()
-}
+	afterEach(() => {
+		rootBinding.remove()
+	})
 
-export function onCreated(test) {
-	test.done()
-}
+	it("instance", () => {
+		assert.ok(new Binding() instanceof Binding)
+	})
+
+
+	it("onCreated", () => {
+
+	})
+
+})
