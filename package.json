@@ -27,5 +27,5 @@
 	"dependencies": {
 		"domodel": "^1.0.46"
 	},
-	"version": "0.0.7"
+	"version": "0.0.8"
 }
