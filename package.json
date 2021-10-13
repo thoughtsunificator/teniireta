@@ -25,7 +25,7 @@
 	"author": "Romain Lebesle <oss@thoughtsunificator.me> (https://thoughtsunificator.me)",
 	"license": "MIT",
 	"dependencies": {
-		"domodel": "^1.0.9"
+		"domodel": "^1.0.46"
 	},
 	"version": "0.0.6"
 }
