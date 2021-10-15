@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>model/input.binding.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,88 +34,59 @@
 
 <div id="main">
     
+    <h1 class="page-title">model/input.binding.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Binding } from "domodel"
 
+/**
+ * @global
+ */
+class InputBinding extends Binding {
 
-    <section class="package">
-        <h3> </h3>		
+	/**
+	 * @param {object}   properties
+	 * @param {Editor}   properties.editor
+	 * @param {Template} properties.template
+	 */
+	constructor(properties) {
+		super(properties)
+	}
+
+	onCreated() {
+
+		const { editor, template } = this.properties
+
+		this.root.addEventListener("input", () => {
+			editor.emit("inputChanged", { html: template.toHTML(this.root.textContent), raw: template.toRaw(this.root.innerHTML) })
+		})
+
+		this.root.addEventListener("keypress", event => {
+			if (event.keyCode === 13) {
+				event.preventDefault()
+				const selection = this.root.ownerDocument.getSelection()
+				const range = selection.getRangeAt(0)
+				const brNode = document.createTextNode("\n")
+				range.insertNode(brNode)
+				range.setStartAfter(brNode)
+			}
+		})
+
+	}
+
+}
+
+export default InputBinding
+</code></pre>
+        </article>
     </section>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme usertext">
-        <article><h1 id="teniireta">teniireta <a href="https://travis-ci.com/thoughtsunificator/teniireta"><img src="https://travis-ci.com/thoughtsunificator/teniireta.svg?branch=master" alt="Build Status"></a></h1>
-<p>Hackable rich-text editor for <a href="https://github.com/thoughtsunificator/domodel">domodel</a></p>
-<h2 id="getting-started">Getting Started</h2>
-<h3 id="installing">Installing</h3>
-<ul>
-<li><code>npm install teniireta</code></li>
-</ul>
-<h3 id="usage">Usage</h3>
-<p>Coming soon...</p>
-<h3 id="events">Events</h3>
-<table>
-<thead>
-<tr>
-<th>Event</th>
-<th>Target</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>initialized</td>
-<td>Editor</td>
-</tr>
-<tr>
-<td>bbcode set</td>
-<td>Editor</td>
-</tr>
-<tr>
-<td>command run</td>
-<td>Editor</td>
-</tr>
-<tr>
-<td>mode set html</td>
-<td>Editor</td>
-</tr>
-<tr>
-<td>mode set bbcode</td>
-<td>Editor</td>
-</tr>
-<tr>
-<td>focused</td>
-<td>Editor</td>
-</tr>
-<tr>
-<td>selection changed</td>
-<td>Editor</td>
-</tr>
-<tr>
-<td>input changed</td>
-<td>Editor</td>
-</tr>
-</tbody>
-</table>
-<h3 id="demo">Demo</h3>
-<p>See <a href="https://github.com/thoughtsunificator/teniireta-demo">https://github.com/thoughtsunificator/teniireta-demo</a>.</p></article>
-    </section>
-
-
 
 
 
