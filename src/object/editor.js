@@ -1,6 +1,9 @@
 import { Observable } from "domodel"
 
-export default class extends Observable {
+/**
+ * @global
+ */
+class Editor extends Observable {
 
 	constructor() {
 		super()
@@ -19,3 +22,5 @@ export default class extends Observable {
 	}
 
 }
+
+export default Editor

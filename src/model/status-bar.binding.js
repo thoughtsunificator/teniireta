@@ -1,19 +1,32 @@
 import { Binding } from "domodel"
 
-export default class extends Binding {
+/**
+ * @global
+ */
+class StatusBarBinding extends Binding {
+
+	/**
+	 * @param {object} properties
+	 * @param {Editor} properties.editor
+	 */
+	constructor(properties) {
+		super(properties)
+	}
 
 	onCreated() {
 
 		const { editor } = this.properties
 
 		this.identifier.html.addEventListener("change", () => {
-			editor.emit("mode set html")
+			editor.emit("setHTMLMode")
 		})
 
 		this.identifier.raw.addEventListener("change", () => {
-			editor.emit("mode set raw")
+			editor.emit("setRawMode")
 		})
 
 	}
 
 }
+
+export default StatusBarBinding
