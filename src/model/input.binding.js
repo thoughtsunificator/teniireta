@@ -18,6 +18,20 @@ class InputBinding extends Binding {
 
 		const { editor, template } = this.properties
 
+		this.listen(editor, "setHTMLMode", () => {
+			this.root.innerHTML = template.toHTML(this.root.textContent)
+		})
+
+		this.listen(editor, "setRawMode", () => {
+			this.root.textContent = template.toRaw(this.root.innerHTML)
+		})
+
+		this.listen(editor, "setRaw", (data) => {
+			const html = template.toHTML(data)
+			this.root.innerHTML = html
+			editor.emit("inputChanged", { html, raw: data })
+		})
+
 		this.root.addEventListener("input", () => {
 			editor.emit("inputChanged", { html: template.toHTML(this.root.textContent), raw: template.toRaw(this.root.innerHTML) })
 		})
