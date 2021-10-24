@@ -9,7 +9,7 @@ const { document } = window
 const RootModel = { tagName: "div" }
 let rootBinding
 
-describe("editor.binding", () => {
+describe("EditorBinding", () => {
 
 	beforeEach(() => {
 		rootBinding = new Binding()

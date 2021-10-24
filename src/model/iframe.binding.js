@@ -4,7 +4,20 @@ import InputModel from "./input.js"
 
 import InputBinding from "./input.binding.js"
 
-export default class extends Binding {
+/**
+ * @global
+ */
+class IframeBinding extends Binding {
+
+	/**
+	 * @param {object}   properties
+	 * @param {Editor}   properties.editor
+	 * @param {Template} properties.template
+	 * @param {string}   [properties.inputStylesheetURL=null]
+	 */
+	constructor(properties) {
+		super(properties)
+	}
 
 	onCreated() {
 
@@ -26,9 +39,12 @@ export default class extends Binding {
 				parentNode: this.root.contentDocument.body,
 			})
 
-			editor.emit("initialized")
+			editor.emit("inputLoaded")
+
 		})
 
 	}
 
 }
+
+export default IframeBinding

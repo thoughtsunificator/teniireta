@@ -2,6 +2,8 @@ import assert from "assert"
 import { JSDOM } from "jsdom"
 import { Core, Binding } from "domodel"
 
+import IframeBinding from "../src/model/iframe.binding.js"
+
 const virtualDOM = new JSDOM()
 const window = virtualDOM.window
 const { document } = window
@@ -9,7 +11,7 @@ const { document } = window
 const RootModel = { tagName: "div" }
 let rootBinding
 
-describe("iframe.binding", () => {
+describe("IframeBinding", () => {
 
 	beforeEach(() => {
 		rootBinding = new Binding()

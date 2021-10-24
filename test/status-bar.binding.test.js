@@ -9,7 +9,7 @@ const { document } = window
 const RootModel = { tagName: "div" }
 let rootBinding
 
-describe("status-bar.binding", () => {
+describe("StatusBarBinding", () => {
 
 	beforeEach(() => {
 		rootBinding = new Binding()
