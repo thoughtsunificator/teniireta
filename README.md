@@ -1,4 +1,4 @@
-# teniireta [![Build Status](https://travis-ci.com/thoughtsunificator/teniireta.svg?branch=master)](https://travis-ci.com/thoughtsunificator/teniireta)
+# teniireta
 
 Hackable rich-text editor for [domodel](https://github.com/thoughtsunificator/domodel)
 
