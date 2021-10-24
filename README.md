@@ -8,23 +8,6 @@ Hackable rich-text editor for [domodel](https://github.com/thoughtsunificator/do
 
 - ``npm install teniireta``
 
-### Usage
-
-Coming soon...
-
-### Events
-
-| Event      | Target |
-| ----------- | ----------- |
-| initialized      			 |   Editor     			|
-| bbcode set | Editor |
-| command run | Editor | 
-| mode set html | Editor | 
-| mode set bbcode | Editor | 
-| focused | Editor | 
-| selection changed | Editor | 
-| input changed | Editor | 
-
 ### Demo
 
 See [https://github.com/thoughtsunificator/teniireta-demo](https://github.com/thoughtsunificator/teniireta-demo).
